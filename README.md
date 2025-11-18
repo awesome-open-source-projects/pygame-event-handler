@@ -10,7 +10,7 @@ A simple python package that helps with handling events in pygame-ce.
 
 ### Example
 ```python
-import pygame
+import pygame as pg
 from pygame_event_handler.event_handler import EventHandler
 
 pg.init()
