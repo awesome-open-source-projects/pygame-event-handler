@@ -1,15 +1,13 @@
 import pygame as pg
 from pygame import RESIZABLE
 from pygame_event_handler.event_handler import EventHandler
+from percent import percent
 
 import pygame
-
 
 def get_text(text):
     surface = font.render(text, True, "black")
     return surface
-
-
 
 pg.init()
 screen = pg.display.set_mode([800,600],RESIZABLE)
@@ -26,4 +24,6 @@ while not event_handler.should_quit:
     screen.blit(get_text("Mouse Focus: "+str(event_handler.mouse_focus)),[0,160])
     screen.blit(get_text("Held Keys "+str(event_handler.held_keys)),[0,240])
     screen.blit(get_text("Mouse held buttons "+str(event_handler.mouse_held_keys)),[0,320])
+    screen.blit(get_text(f"mouse pos x ratio: {percent(event_handler.mouse_pos.x,800)}"),[0,400])
+    screen.blit(get_text(f"mouse pos y ratio: {percent(event_handler.mouse_pos.y,600)}"),[0,480])
     pg.display.update()
